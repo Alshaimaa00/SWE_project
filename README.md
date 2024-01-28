@@ -1,2 +1,2 @@
 # SWE_project
-the project is about an Educational App-like Game
+This is our project for our Software Engineering course, we're developing an Educational App-like game.
