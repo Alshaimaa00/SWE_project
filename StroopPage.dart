@@ -111,7 +111,7 @@ class _ColorGameScreenState extends State<ColorGameScreen> {
                 Text(score.toString(), style: TextStyle(fontSize: 16, color: Colors.black)),
               ],
             ),
-          ),17202 21352 16540
+          ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
