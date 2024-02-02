@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'dart:async';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +39,22 @@ class MyApp extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          child: GameScreen(),
+          child: Stack(
+              children: [ GameScreen(),
+
+    Padding(  //return button
+    padding: const EdgeInsets.only(top: 7),
+    child: Positioned(
+    left: 5 * 38.5,
+    child: Image.asset(
+    'Assets/Images/return_BTN.jpg',
+    width: 1.5 * 38.5826771654,
+    height: 1.5 * 38.5826771654,
+    ),
+    ),
+    ),
+    ],
+        ),
         ),
       ),
     );
@@ -60,7 +77,21 @@ class _GameScreenState extends State<GameScreen> {
   int score = 0;
   int rollNumber = 0;
   bool correctPathSelected = false;
+  late Timer timer;
+  int remainingTime = 12;
 
+void startTimer() {
+      timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+        setState(() {
+          remainingTime = max(0, remainingTime - 1);
+        });
+
+        if (remainingTime == 0) {
+          timerMsg();
+        }
+      });
+    }
+  
   AudioPlayer player = AudioPlayer();
   void playSuccessMusic() {
     player.play(AssetSource("sound/success.mp3"));
@@ -91,6 +122,8 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     correctPathSelected = false;
     super.initState();
+
+      startTimer();
   }
 
   @override
@@ -429,6 +462,31 @@ class _GameScreenState extends State<GameScreen> {
     _showDialog(isCorrectPath ? 'تم اختيار المسار بنجاح' : 'مسار خاطئ');
   }
 
+
+double cmToPixels(double cm) {
+    return cm * 38.5826771654;  }
+
+  
+ void timerMsg() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("           !انتهى الوقت"),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  
   void _showDialog(String message) {
     showDialog(
       context: context,
