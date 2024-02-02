@@ -47,7 +47,7 @@ class _ColorGameScreenState extends State<ColorGameScreen> {
     });
   }
 
-  void startTimer() {
+  void startTimer() {//timer method
     timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
       setState(() {
         remainingTime = max(0, remainingTime - 1);
@@ -59,7 +59,7 @@ class _ColorGameScreenState extends State<ColorGameScreen> {
     });
   }
 
-  void checkAnswer(Color selectedColor) {
+  void checkAnswer(Color selectedColor) {//check ans and inc score
     if (selectedColor == randomPair.color) {
       setState(() {
         score += 5;
@@ -107,7 +107,7 @@ class _ColorGameScreenState extends State<ColorGameScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('عوده: ', style: TextStyle(fontSize: 16, color: Colors.black)),
+                Text('عوده: ', style: TextStyle(fontSize: 16, color: Colors.black)),//score screen
                 Text(score.toString(), style: TextStyle(fontSize: 16, color: Colors.black)),
               ],
             ),
@@ -129,7 +129,7 @@ class _ColorGameScreenState extends State<ColorGameScreen> {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'الوقت المتبقي: $remainingTime ثواني',
+                  'الوقت المتبقي: $remainingTime ثواني',//timer
                   style: TextStyle(fontSize: 16),
                 ),
                 SizedBox(height: 20),
