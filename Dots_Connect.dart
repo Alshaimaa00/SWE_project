@@ -78,7 +78,7 @@ class _GameScreenState extends State<GameScreen> {
   int rollNumber = 0;
   bool correctPathSelected = false;
   late Timer timer;
-  int remainingTime = 12;
+  int remainingTime = 20;
 
 void startTimer() {
       timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
