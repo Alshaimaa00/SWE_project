@@ -417,7 +417,7 @@ void startTimer() {
         setState(() {
           correctPathSelected = true;
            score++;
-          scoreN+=150;
+          scoreN+=30;
         });
         _resetGame();
 
@@ -427,7 +427,7 @@ void startTimer() {
       }
     } else {
       correctPathSelected = false;
-      scoreN-=50;
+      scoreN-=5;
     }
   }
 
