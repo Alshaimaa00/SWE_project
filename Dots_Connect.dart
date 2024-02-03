@@ -503,7 +503,7 @@ double cmToPixels(double cm) {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text("OK"),
+              child: Text("X"),
             ),
           ],
         );
@@ -548,7 +548,7 @@ double cmToPixels(double cm) {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: const Text("OK"),
+                child: const Text("X"),
               ),
             ],
           ),
