@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';  
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,7 +37,7 @@ class _MyGameState extends State<MyGame> {
   String correctAnswer = 'احتطاب';
   List<String> letters = ['ا', 'ح', 'ت', 'ط', 'ب', 'س', 'ل', 'و', 'ى'];
   List<String> chosenLetters = [];
-  int remainingSeconds = 5;
+  int remainingSeconds = 10;
 
   @override
   void initState() {
