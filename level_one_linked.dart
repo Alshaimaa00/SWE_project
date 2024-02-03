@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:audioplayers/audioplayers.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
 
@@ -101,7 +102,7 @@ class _ColorGameScreenState extends State<ColorGameScreen> {
         children: [
           Positioned.fill(
             child: Image.asset(
-              'assets/level1_backG.jpg',
+              'images/level1_backG.jpg',
               fit: BoxFit.cover,
             ),
           ),
@@ -186,25 +187,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('ثلاث صور وكلمة'),
-        ),
-        body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/pagejpg.jpg'),
-              fit: BoxFit.cover,
-            ),
-          ),
-    child: GestureDetector(
-    onTap: () {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => MyA()));
-    },
-          child: MyGame(),
-        ),
-      ),
-    ),
+      home: MyGame(),
     );
   }
 }
@@ -215,148 +198,197 @@ class MyGame extends StatefulWidget {
 }
 
 class _MyGameState extends State<MyGame> {
+  int score = 0;
   String selectedLetter = '';
   String correctAnswer = 'احتطاب';
   List<String> letters = ['ا', 'ح', 'ت', 'ط', 'ب', 'س', 'ل', 'و', 'ى'];
   List<String> chosenLetters = [];
+  int remainingSeconds = 10;
+
+  @override
+  void initState() {
+    super.initState();
+    countdown();
+  }
+
+  void countdown() {
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        remainingSeconds--;
+        if (remainingSeconds == 0) {
+          timer.cancel();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SecondScreen()),
+          );
+        }
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image.asset('assets/PHOTO-2024-02-01-14-42-38.jpg', width: 100, height: 100),
-            Image.asset('assets/momo.jpg', width: 100, height: 100),
-            Image.asset('assets/PHOTO-2024-02-01-14-43-08.jpg', width: 100, height: 100),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ثلاث صور وكلمة'),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/alhan.jpg'),
+            fit: BoxFit.cover,
+          ),
         ),
-        SizedBox(height: 20),
-        Wrap(
-          spacing: 10,
-          runSpacing: 10,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            for (String letter in letters)
-              ElevatedButton(
-                onPressed: () {
+            Positioned(
+              top: 35.0,
+              left: 185.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('عودة ', style: TextStyle(fontSize: 16, color: Colors.black)),
+                  Text(score.toString(), style: TextStyle(fontSize: 16, color: Colors.black)),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Image.asset('images/Ashwag.jpg', width: 100, height: 100),
+                Image.asset('images/shatti.jpg', width: 100, height: 100),
+                Image.asset('images/momo.jpg', width: 100, height: 100),
+              ],
+            ),
+            SizedBox(height: 20),
+            Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: [
+                for (String letter in letters)
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        selectedLetter = letter;
+                        chosenLetters.add(letter);
+                      });
+                    },
+                    child: Text(letter),
+                  ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: [
+                for (String letter in chosenLetters)
+                  Container(
+                    width: 40,
+                    height: 40,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: Colors.brown[300],
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text(letter, style: TextStyle(fontSize: 20)),
+                  ),
+              ],
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                if (chosenLetters.join() == correctAnswer) {
                   setState(() {
-                    selectedLetter = letter;
-                    chosenLetters.add(letter);
-
+                    score += 100;
                   });
-                },
-
-                child: Text(letter),
-              ),
+                  showDialog(
+                    context: context,
+                    builder: (_) => AlertDialog(
+                      title: Text('ممتاز!'),
+                      content: Text('إجابتك صحيحة.'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text('موافق'),
+                        ),
+                      ],
+                    ),
+                  );
+                } else {
+                  showDialog(
+                    context: context,
+                    builder: (_) => AlertDialog(
+                      title: Text('خطأ!'),
+                      content: Text('حاول مجددًا.'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text('محاولة مجددا'),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+              },
+              child: Text('تحقق'),
+            ),
+            SizedBox(height: 20),
+            Text('الوقت المتبقي: $remainingSeconds ثواني'),
           ],
         ),
-        SizedBox(height: 20),
-        Wrap(
-          spacing: 10,
-          runSpacing: 10,
-          children: [
-            for (String letter in chosenLetters)
-              Container(
-                width: 40,
-                height: 40,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.brown[300],
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(letter, style: TextStyle(fontSize: 20)),
-              ),
-          ],
-        ),
-        SizedBox(height: 20),
-        ElevatedButton(
-          onPressed: () {
-            if (chosenLetters.join() == correctAnswer) {
-              showDialog(
-                context: context,
-                builder: (_) => AlertDialog(
-                  title: Text('ممتاز!'),
-                  content: Text('إجابتك صحيحة.'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedLetter = '';
-                          chosenLetters.clear();
-                        });
-                        Navigator.pop(context);
-                      },
-                      child: Text('موافق'),
-                    ),
-                  ],
-                ),
-              );
-            } else {
-              showDialog(
-                context: context,
-                builder: (_) => AlertDialog(
-                  title: Text('خطأ!'),
-                  content: Text('حاول مجددًا.'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedLetter = '';
-                          chosenLetters.clear();
-                        });
-                        Navigator.pop(context);
-                      },
-                      child: Text('محاولة مجددا'),
-                    ),
-                  ],
-                ),
-              );
-            }
-          },
-          child: Text('تحقق'),
-        ),
-      ],
+      ),
     );
   }
 }
 
-class MyA extends StatelessWidget {
-  const MyA({Key? key}) : super(key: key);
-
+class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(40.0),
-          child: AppBar(
-            backgroundColor: const Color(0xFFA17135),
-            title: const Text(
-              'لعبة توصيل النقاط',
-              style: TextStyle(
-                color: Color.fromARGB(255, 255, 255, 255),
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                fontFamily: "Cairo",
-              ),
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(40.0),
+        child: AppBar(
+          backgroundColor: const Color(0xFFA17135),
+          title: const Text(
+            'لعبة توصيل النقاط',
+            style: TextStyle(
+              color: Color.fromARGB(255, 255, 255, 255),
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              fontFamily: "Cairo",
             ),
-            centerTitle: true,
+          ),
+          centerTitle: true,
+        ),
+      ),
+      body: DecoratedBox(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/level1_backG.jpg'),
+            fit: BoxFit.cover,
           ),
         ),
-        body: const DecoratedBox(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/pagejpg.jpg'),
-              fit: BoxFit.cover,
+        child: Stack(
+          children: [
+            GameScreen(),
+            Padding(
+              padding: const EdgeInsets.only(top: 7),
+              child: Positioned(
+                left: 5 * 38.5,
+                child: Image.asset(
+                  'images/return_BTN.jpg',
+                  width: 1.5 * 38.5826771654,
+                  height: 1.5 * 38.5826771654,
+                ),
+              ),
             ),
-          ),
-          child: Stack(
-            children: [
-              GameScreen(),
-            ],
-          ),
+          ],
         ),
       ),
     );
@@ -364,8 +396,6 @@ class MyA extends StatelessWidget {
 }
 
 class GameScreen extends StatefulWidget {
-  const GameScreen({Key? key}) : super(key: key);
-
   @override
   _GameScreenState createState() => _GameScreenState();
 }
@@ -377,15 +407,22 @@ class _GameScreenState extends State<GameScreen> {
   List<bool> pressedStates = List.generate(25, (index) => false);
   int selectedPoints = 0;
   final int requiredPoints = 2;
-  int score = 0; //number of tries
+  int score = 0;
   int rollNumber = 0;
   bool correctPathSelected = false;
   late Timer timer;
   int remainingTime = 20;
-  int scoreN = 0; //players score
+  int scoreN = 0;
+
+  @override
+  void initState() {
+    correctPathSelected = false;
+    super.initState();
+    startTimer();
+  }
 
   void startTimer() {
-    timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
         remainingTime = max(0, remainingTime - 1);
       });
@@ -396,6 +433,11 @@ class _GameScreenState extends State<GameScreen> {
     });
   }
 
+  AudioPlayer player = AudioPlayer();
+
+  void playSuccessMusic() {
+
+  }
 
   //correct grid paths
   List<int> correctPathIndices = [23, 22, 21, 20, 15, 10, 5, 6, 7, 8, 9];
@@ -419,7 +461,7 @@ class _GameScreenState extends State<GameScreen> {
   List<int> userSelectedPath = [];
 
   @override
-  void initState() {
+  void initeState() {
     correctPathSelected = false;
     super.initState();
     startTimer();
@@ -564,7 +606,7 @@ class _GameScreenState extends State<GameScreen> {
                     child: IgnorePointer(
                       ignoring: true,
                       child: Image.asset(
-                        'assets/fng.jpg',
+                        'images/fng.jpg',
                         width: 57,
                         height: 70,
                       ),
@@ -577,7 +619,7 @@ class _GameScreenState extends State<GameScreen> {
                     child: IgnorePointer(
                       ignoring: true,
                       child: Image.asset(
-                        'assets/fng.jpg',
+                        'images/fng.jpg',
                         width: 57,
                         height: 70,
                       ),
@@ -590,7 +632,7 @@ class _GameScreenState extends State<GameScreen> {
                     child: IgnorePointer(
                       ignoring: true,
                       child: Image.asset(
-                        'assets/dah.jpg',
+                        'images/dah.jpg',
                         width: 45,
                         height: 66,
                       ),
@@ -603,7 +645,7 @@ class _GameScreenState extends State<GameScreen> {
                     child: IgnorePointer(
                       ignoring: true,
                       child: Image.asset(
-                        'assets/dah.jpg',
+                        'images/dah.jpg',
                         width: 45,
                         height: 66,
                       ),
@@ -710,6 +752,7 @@ class _GameScreenState extends State<GameScreen> {
       bool isCorrectPath = checkCorrectPath();
 
       if (isCorrectPath) {
+        playSuccessMusic();
         rollNumber++;
 
         setState(() {
@@ -834,7 +877,7 @@ class _GameScreenState extends State<GameScreen> {
                     height: 40,
                   ),
                   Image.asset(
-                    'Assets/Images/clapping-hands.png',
+                    'images/clapping-hands.png',
                     width: 150,
                     height: 140,
                   ),
