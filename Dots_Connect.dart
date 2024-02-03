@@ -74,12 +74,13 @@ class _GameScreenState extends State<GameScreen> {
   List<bool> pressedStates = List.generate(25, (index) => false);
   int selectedPoints = 0;
   final int requiredPoints = 2;
-  int score = 0;
+  int score = 0; //number of tries
   int rollNumber = 0;
   bool correctPathSelected = false;
   late Timer timer;
   int remainingTime = 20;
-
+ int scoreN=0; //players score
+  
 void startTimer() {
       timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
         setState(() {
@@ -87,7 +88,7 @@ void startTimer() {
         });
 
         if (remainingTime == 0) {
-          timerMsg();
+          // timerMsg(" انتهى الوقت! ");
         }
       });
     }
@@ -122,7 +123,6 @@ void startTimer() {
   void initState() {
     correctPathSelected = false;
     super.initState();
-
       startTimer();
   }
 
@@ -150,8 +150,19 @@ void startTimer() {
         child: Column(
           children: [
             const SizedBox(
-              height: 73,
+              height: 36 ),
+            Text(
+              '          عودة \t${scoreN.toString()}',
+              style: const TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontWeight: FontWeight.bold,
+                fontSize: 17,
+                fontFamily: "Cairo",
+              ),
             ),
+
+            const SizedBox(
+                height: 11 ),
             const Align(
               alignment: Alignment.center,
               child: Padding(
@@ -170,7 +181,19 @@ void startTimer() {
             ),
 
             const SizedBox(
-              height: 15,
+              height: 13,
+            ),
+             Text(
+            'الوقت المتبقي: $remainingTime ثواني',
+              style: const TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  fontFamily: "Cairo"),
+            ),
+
+             const SizedBox(
+              height: 13,
             ),
             Text(
               'من 2 إحتمالات\t$score',
@@ -392,8 +415,9 @@ void startTimer() {
         rollNumber++;
 
         setState(() {
-          score++;
           correctPathSelected = true;
+           score++;
+          scoreN+=150;
         });
         _resetGame();
 
@@ -403,6 +427,7 @@ void startTimer() {
       }
     } else {
       correctPathSelected = false;
+      scoreN-=50;
     }
   }
 
@@ -467,7 +492,7 @@ double cmToPixels(double cm) {
     return cm * 38.5826771654;  }
 
   
- void timerMsg() {
+ /*void timerMsg() {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -484,7 +509,7 @@ double cmToPixels(double cm) {
         );
       },
     );
-  }
+  }*/
 
   
   void _showDialog(String message) {
@@ -544,7 +569,7 @@ class LinePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..color = Colors.red
-      ..strokeWidth = 2.0;
+      ..strokeWidth = 0.5;
 
     for (int i = 0; i < points.length - 1; i++) {
       canvas.drawLine(points[i], points[i + 1], paint);
