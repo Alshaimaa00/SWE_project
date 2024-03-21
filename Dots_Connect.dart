@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
         ),
         ),
 
-        body: const DecoratedBox(
-          decoration: BoxDecoration(
+        body: DecoratedBox(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('Assets/Images/level1_backG.jpg'),
               fit: BoxFit.cover,
