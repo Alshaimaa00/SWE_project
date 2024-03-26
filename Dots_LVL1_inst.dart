@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             body: DecoratedBox(
             decoration: const BoxDecoration(
             image: DecorationImage(
-            image: AssetImage('Assets/Images/First_Level.png'),
+            image: AssetImage('Assets/Images/inst_BKG(LVL1).jpg'),
       fit: BoxFit.cover,
     ),
     ),
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
         child: Align(
           alignment: Alignment.center,
           child: Text(
-            'قم بالنقر على المربعات لتظليلها,\n ومحاولة التوصيل بين العناصر المتشابهة',
+           'خذ التعليمات قبل ان تنطلق\n\n قم بالنقر على المربعات لتظليلها,\n ومحاولة التوصيل بين العناصر المتشابهة',
             style: TextStyle(
               color: Color.fromARGB(255, 0, 0, 0),
               fontWeight: FontWeight.bold,
