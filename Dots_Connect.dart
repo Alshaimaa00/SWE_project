@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         body: DecoratedBox(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('Assets/Images/First_Level.png'),
+              image: AssetImage('Assets/Images/First_Level_BKG.jpg'),
               fit: BoxFit.cover,
             ),
           ),
@@ -269,9 +269,9 @@ class _GameScreenState extends State<GameScreen> {
                     child: IgnorePointer(
                       ignoring: true,
                       child: Image.asset(
-                        'Assets/Images/dah(LVL1).jpg',
-                        width: 45,
-                        height: 66,
+                        'Assets/Images/dah(LVL1).png',
+                        width: 50,
+                        height: 70,
                       ),
                     ),
                   ),
@@ -282,9 +282,9 @@ class _GameScreenState extends State<GameScreen> {
                     child: IgnorePointer(
                       ignoring: true,
                       child: Image.asset(
-                        'Assets/Images/dah(LVL1).jpg',
-                        width: 45,
-                        height: 66,
+                        'Assets/Images/dah(LVL1).png',
+                        width: 50,
+                        height: 70,
                       ),
                     ),
                   ),
@@ -295,7 +295,7 @@ class _GameScreenState extends State<GameScreen> {
                     child: IgnorePointer(
                       ignoring: true,
                       child: Image.asset(
-                        'Assets/Images/dates (LVL1).jpg',
+                        'Assets/Images/dah(LVL1).png',
                         width: 57,
                         height: 70,
                       ),
@@ -308,7 +308,7 @@ class _GameScreenState extends State<GameScreen> {
                     child: IgnorePointer(
                       ignoring: true,
                       child: Image.asset(
-                        'Assets/Images/dates (LVL1).jpg',
+                        'Assets/Images/dah(LVL1).png',
                         width: 57,
                         height: 70,
                       ),
