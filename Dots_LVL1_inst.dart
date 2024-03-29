@@ -53,11 +53,11 @@ class MyApp extends StatelessWidget {
     ),
 
       const Padding(
-        padding: EdgeInsets.only(bottom: 280),
+        padding: EdgeInsets.only(bottom: 279),
         child: Align(
           alignment: Alignment.center,
           child: Text(
-           'خذ التعليمات قبل ان تنطلق\n\n قم بالنقر على المربعات لتظليلها,\n ومحاولة التوصيل بين العناصر المتشابهة',
+            'خذ التعليمات قبل ان تنطلق! \n ستظهر لك الان لعبة توصيل العناصر المتشابهة \n -قم بالنقر على المربعات لتظليلها, ومحاولة التوصيل بين العناصر المتشابهة \n لديك عشرين ثانية لتوصيل العناصر المتشابهة!',
             style: TextStyle(
               color: Color.fromARGB(255, 0, 0, 0),
               fontWeight: FontWeight.bold,
@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
 
           Positioned( //go button
             left: (MediaQuery.of(context).size.width - 4 * 38.5826771654) / 2,
-            bottom: 278, // Adjust as needed
+            bottom: 240, 
             child: Image.asset(
               'Assets/Images/go_BTN (LVL1).jpg',
               width: 4 * 38.5826771654,
