@@ -1,6 +1,6 @@
 //Dots Connect Level3 Game
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
+//import 'package:audioplayers/audioplayers.dart';
 import 'dart:async';
 import 'dart:math';
 
@@ -36,24 +36,24 @@ class MyApp extends StatelessWidget {
         body: DecoratedBox(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('Assets/Images/Third_Level_BKG.png'),
+              image: AssetImage('Assets/Images/back_7(LVL3).png'),
               fit: BoxFit.cover,
             ),
           ),
           child: Stack(
             children: [ GameScreen(),
 
-              Padding(  //return button
+              /*Padding(  //return button
                 padding: const  EdgeInsets.only(top: 7),
                 child: Positioned(
                   left: 5 * 38.5,
                   child: Image.asset(
-                    'Assets/Images/return_BTN (LVL3).png',
+                    'Assets/Images/return_BTN(LVL3).png',
                     width: 2.4 * 38.582,
                     height: 2 * 38.582,
                   ),
                 ),
-              ),
+              ),*/
             ],
           ),
         ),
@@ -94,15 +94,15 @@ class _GameScreenState extends State<GameScreen> {
     });
   }
 
-  AudioPlayer player = AudioPlayer();
-  void playSuccessMusic() {
-    player.play(AssetSource("sound/success.mp3"));
-  }
+  //AudioPlayer player = AudioPlayer();
+  //void playSuccessMusic() {
+    //player.play(AssetSource("sound/success.mp3"));
+  //}
 
   //correct grid paths
   List<int> correctPathIndices = [6,11,12,17,18,19,14,13];
   List<List<int>> correctPathsIndicesList = [
-   [6,11,12,13], [6,11,12,17,18,13], //mnt paths
+    [6,11,12,13], [6,11,12,17,18,13], //mnt paths
     [10,11,12,17,22,21], [10,15,20,21], //flwr paths
     [16,17,18,23], [16,17,22,23], //plt paths
     [9,14,19,24], //hll path
@@ -248,20 +248,20 @@ class _GameScreenState extends State<GameScreen> {
                       child: Image.asset(
                         'Assets/Images/sdo(LVL3).png',
                         width: 53,
-                        height: 75,
+                        height: 60,
                       ),
                     ),
                   ),
 
                   Positioned( //second row sdo
-                    left: (5.01 % columns) * (315 / columns),
-                    top: (6.8 ~/ columns) * (300 / rows),
+                    left: (5.06 % columns) * (340 / columns),
+                    top: (6.8 ~/ columns) * (280/ rows),
                     child: IgnorePointer(
                       ignoring: true,
                       child: Image.asset(
                         'Assets/Images/sdo(LVL3).png',
-                        width: 54,
-                        height: 70,
+                        width: 49,
+                        height: 60,
                       ),
                     ),
                   ),
@@ -300,7 +300,7 @@ class _GameScreenState extends State<GameScreen> {
                       child: Image.asset(
                         'Assets/Images/mnt(LVL3).png',
                         width: 55,
-                        height: 63,
+                        height: 60,
                       ),
                     ),
                   ),
@@ -319,27 +319,27 @@ class _GameScreenState extends State<GameScreen> {
                   ),
 
                   Positioned( //third row flwr
-                    left: (5 % columns) * (310 / columns),
+                    left: (5.1 % columns) * (200 / columns),
                     top: (10.2 ~/ columns) * (300 / rows),
                     child: IgnorePointer(
                       ignoring: true,
                       child: Image.asset(
                         'Assets/Images/flwr(LVL3).png',
-                        width: 57,
-                        height: 70,
+                        width: 50,
+                        height: 60,
                       ),
                     ),
                   ),
 
                   Positioned( //bottom row flwr
-                    left: (6 % columns) * (310 / columns),
+                    left: (6.1% columns) * (310 / columns),
                     top: (20.1 ~/ columns) * (300 / rows),
                     child: IgnorePointer(
                       ignoring: true,
                       child: Image.asset(
                         'Assets/Images/flwr(LVL3).png',
-                        width: 57,
-                        height: 70,
+                        width: 50,
+                        height: 60,
                       ),
                     ),
                   ),
@@ -496,7 +496,7 @@ class _GameScreenState extends State<GameScreen> {
       bool isCorrectPath = checkCorrectPath();
 
       if (isCorrectPath) {
-        playSuccessMusic();
+        //playSuccessMusic();
         rollNumber++;
 
         setState(() {
