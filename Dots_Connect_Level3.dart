@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(40.0),
+          preferredSize: const Size.fromHeight(40.0),
           child: AppBar(
             backgroundColor: const Color(0xFF005D22),
             title: const Text(
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           child: Stack(
-            children: [ GameScreen(),
+            children: [ const GameScreen(),
 
               /*Padding(  //return button
                 padding: const  EdgeInsets.only(top: 7),
@@ -83,7 +83,7 @@ class _GameScreenState extends State<GameScreen> {
   int scoreN=0; //players score
 
   void startTimer() {
-    timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
       setState(() {
         remainingTime = max(0, remainingTime - 1);
       });
@@ -228,7 +228,7 @@ class _GameScreenState extends State<GameScreen> {
                         child: Container(
                           decoration: BoxDecoration(
                             color: pressedStates[index]
-                                ? Color(0xFF005D22)
+                                ? const Color(0xFF005D22)
                                 : Colors.transparent,
                             border: Border.all(
                               color: const Color(0xFF005D22),
