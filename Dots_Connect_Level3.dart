@@ -502,7 +502,7 @@ class _GameScreenState extends State<GameScreen> {
         setState(() {
           correctPathSelected = true;
           score++;
-          scoreN+=30;
+          scoreN+=20;
         });
         _resetGame();
 
@@ -512,7 +512,7 @@ class _GameScreenState extends State<GameScreen> {
       }
     } else {
       correctPathSelected = false;
-      scoreN-=5;
+      scoreN-=10;
     }
   }
 
