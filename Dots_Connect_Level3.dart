@@ -43,17 +43,23 @@ class MyApp extends StatelessWidget {
           child: Stack(
             children: [ const GameScreen(),
 
-              /*Padding(  //return button
-                padding: const  EdgeInsets.only(top: 7),
+              Padding(  //return button
+                padding: const  EdgeInsets.only(top: 5),
                 child: Positioned(
-                  left: 5 * 38.5,
+                  bottom: 700,
+                  right: 400 ,
+                  child: TextButton(
+                    onPressed: (){
+                      //add logic
+                    },
                   child: Image.asset(
-                    'Assets/Images/return_BTN(LVL3).png',
-                    width: 2.4 * 38.582,
+                    'Assets/Images/return_BTN (LVL3).png',
+                    width: 1.75 * 38.582,
                     height: 2 * 38.582,
                   ),
                 ),
-              ),*/
+              ),
+              ),
             ],
           ),
         ),
