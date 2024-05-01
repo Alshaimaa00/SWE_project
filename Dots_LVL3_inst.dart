@@ -40,17 +40,23 @@ class MyApp extends StatelessWidget {
 
     child: Stack(
     children: [
-      Padding(  //return button
-      padding: const  EdgeInsets.only(top:8),
+       Padding(  //return button
+        padding: const  EdgeInsets.only(top: 5),
         child: Positioned(
-    left: 12 *38.6,
-    child: Image.asset(
-    'Assets/Images/return_BTN (LVL3).png',
-    width: 2.3 * 38.5826771654,
-    height: 2.3 * 38.5826771654,
-    ),
-    ),
-    ),
+          bottom: 700,
+          right: 400 ,
+          child: TextButton(
+            onPressed: (){
+              //add logic
+            },
+            child: Image.asset(
+              'Assets/Images/return_BTN (LVL3).png',
+              width: 1.75 * 38.582,
+              height: 2 * 38.582,
+            ),
+          ),
+        ),
+      ),
 
       const Padding(
         padding: EdgeInsets.only(bottom: 285),
@@ -72,13 +78,18 @@ class MyApp extends StatelessWidget {
 
           Positioned( //go button
             left: (MediaQuery.of(context).size.width - 5.2 * 38.5826771654) / 2,
-            bottom: 260, // Adjust as needed
+            bottom: 260, 
+             child: TextButton(
+              onPressed: (){
+                //add logic
+              },
             child: Image.asset(
               'Assets/Images/go_BTN (LVL3).png',
               width: 4.5 * 38.5826771654,
               height: 4 * 38.5826771654,
             ),
           ),
+            ),
     ],
     ),
             ),
