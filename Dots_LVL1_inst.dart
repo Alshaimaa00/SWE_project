@@ -76,14 +76,19 @@ class MyApp extends StatelessWidget {
         ),
       ),
 
-          Positioned( //go button
+           Positioned( //go button
             left: (MediaQuery.of(context).size.width - 4 * 38.5826771654) / 2,
-            bottom: 240, 
+            bottom: 240,
+            child: TextButton(
+              onPressed: (){
+                //add logic
+              },
             child: Image.asset(
               'Assets/Images/go_BTN (LVL1).jpg',
               width: 4 * 38.5826771654,
               height: 3 * 38.5826771654,
             ),
+          ),
           ),
     ],
     ),
