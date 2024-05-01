@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         body: DecoratedBox(
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('Assets/Images/level23_backG.png'),
+              image: AssetImage('Assets/Images/back_t6.png'),
               fit: BoxFit.cover,
             ),
           ),
@@ -45,11 +45,17 @@ class MyApp extends StatelessWidget {
               Padding(  //return button
                 padding: const  EdgeInsets.only(top: 7),
                 child: Positioned(
-                  left: 5 * 38.5,
-                  child: Image.asset(
-                    'Assets/Images/return_BTN.png',
-                    width: 1.5 * 38.5826771654,
-                    height: 1.5 * 38.5826771654,
+                  bottom: 700,
+                  right: 400 ,
+                  child: TextButton(
+                    onPressed: (){
+                      //add logic
+                    },
+                    child: Image.asset(
+                      'Assets/Images/return_BTN.png',
+                      width: 1.75 * 38.5826771654,
+                      height: 1.5 * 38.5826771654,
+                    ),
                   ),
                 ),
               ),
@@ -497,7 +503,7 @@ class _GameScreenState extends State<GameScreen> {
         setState(() {
           correctPathSelected = true;
           score++;
-          scoreN+=20;
+          scoreN+=15;
         });
         _resetGame();
 
