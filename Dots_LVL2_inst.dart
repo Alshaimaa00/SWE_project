@@ -41,13 +41,19 @@ class MyApp extends StatelessWidget {
           child: Stack(
             children: [
               Padding(  //return button
-                padding: const  EdgeInsets.only(top:8),
+                padding: const  EdgeInsets.only(top: 7),
                 child: Positioned(
-                  left: 12 *38.6,
-                  child: Image.asset(
-                    'Assets/Images/return_BTN.png',
-                    width: 2.3 * 38.5826771654,
-                    height: 2.3 * 38.5826771654,
+                  bottom: 700,
+                  right: 400 ,
+                  child: TextButton(
+                    onPressed: (){
+                      //add logic
+                    },
+                    child: Image.asset(
+                      'Assets/Images/return_BTN.png',
+                      width: 1.75 * 38.5826771654,
+                      height: 1.5 * 38.5826771654,
+                    ),
                   ),
                 ),
               ),
@@ -57,7 +63,7 @@ class MyApp extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    'خذ التعليمات قبل ان تنطلق! \n ستظهر لك الان لعبة توصيل العناصر المتشابهة \n -قم بالنقر على المربعات لتظليلها, ومحاولة التوصيل بين العناصر المتشابهة \n لديك عشرين ثانية لتوصيل العناصر المتشابهة!',
+                    'خذ التعليمات قبل ان تنطلق! \n ستظهر لك الان لعبة توصيل العناصر المتشابهة \n -قم بالنقر على المربعات لتظليلها, ومحاولة التوصيل بين العناصر المتشابهة \n لديك خمس وثلاثين ثانية لتوصيل العناصر المتشابهة!',
                     style: TextStyle(
                       color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.bold,
@@ -72,11 +78,16 @@ class MyApp extends StatelessWidget {
 
               Positioned( //go button
                 left: (MediaQuery.of(context).size.width - 5.2 * 38.5826771654) / 2,
-                bottom: 260, // Adjust as needed
-                child: Image.asset(
-                  'Assets/Images/saham.png',
-                  width: 4.5 * 38.5826771654,
-                  height: 4 * 38.5826771654,
+                bottom: 260,
+                child: TextButton(
+                  onPressed: (){
+                    //add logic
+                  },
+                  child: Image.asset(
+                    'Assets/Images/saham.png',
+                    width: 4.5 * 38.5826771654,
+                    height: 4 * 38.5826771654,
+                  ),
                 ),
               ),
             ],
