@@ -67,7 +67,7 @@ class _StroopGamePageState extends State<StroopGamePage> {
         score++;
       });
     } else {
-      // Handle incorrect answer
+      
     }
     generateQuestion();
     timeLeft = 10;
@@ -85,7 +85,7 @@ class _StroopGamePageState extends State<StroopGamePage> {
         children: [
           Positioned.fill(
             child: Image.asset(
-              'asset/lvel_one.jpg', // Check your asset path here
+              'asset/lvel_one.jpg', 
               fit: BoxFit.cover,
             ),
           ),
