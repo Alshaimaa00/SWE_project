@@ -1,4 +1,4 @@
-name: "SWE"
+name: build
 on:
   push:
     branches:
