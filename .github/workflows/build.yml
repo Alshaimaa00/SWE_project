@@ -1,4 +1,4 @@
-name: Build
+name: "SWE"
 on:
   push:
     branches:
@@ -13,9 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          node-version: '20.x'
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.origanization=mafazza
+            -Dsonar.projectKey=SWE_project
