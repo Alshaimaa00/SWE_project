@@ -17,4 +17,4 @@ bulid:
           with:
           args: >
           -Dsonar,organization=alshaimaaalamer
-          -Dsonar.projectKey=alshaimaaalamer
+          -Dsonar.projectKey=SWE_project
