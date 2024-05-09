@@ -22,5 +22,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.origanization=mafazza
+            -Dsonar.origanization=alshaimaaalamer
             -Dsonar.projectKey=SWE_project
