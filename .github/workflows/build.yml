@@ -1,15 +1,9 @@
 name: Build
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened]
-jobs:
-DemoSonarCloudSCan:
+workflow_dispatch:
 
-  sonarcloud:
-    name: SonarCloud
+jobs:
+bulid:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,3 +14,7 @@ DemoSonarCloudSCan:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          with:
+          args: >
+          -Dsonar,organization=alshaimaaalamer
+          -Dsonar.projectKey=alshaimaaalamer
