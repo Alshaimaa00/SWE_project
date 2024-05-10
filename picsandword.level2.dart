@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Center(child: Text('ثلاث صور وكلمة')),
-          backgroundColor: Color(0xFF90CAF9), // تم تغيير لون الخلفية هنا
+          backgroundColor: Color(0xFF90CAF9), 
         ),
         body: Container(
           decoration: BoxDecoration(
@@ -55,7 +55,7 @@ class _MyGameState extends State<MyGame> {
         });
         countdown();
       } else if (isTimerRunning) {
-        isTimerRunning = false; // إيقاف المؤقت
+        isTimerRunning = false; //
         showDialog(
           context: context,
           builder: (_) => AlertDialog(
@@ -64,8 +64,8 @@ class _MyGameState extends State<MyGame> {
             actions: [
               TextButton(
                 onPressed: () {
-                  resetGame(); // إعادة تهيئة اللعبة
-                  Navigator.pop(context); // إغلاق الرسالة
+                  resetGame(); //
+                  Navigator.pop(context); // إ
                 },
                 child: Text('التالي'),
               ),
@@ -97,9 +97,9 @@ class _MyGameState extends State<MyGame> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('images/fozy.jpg', width: 124, height: 124), // زيادة حجم الصورة هنا
+                Image.asset('images/fozy.jpg', width: 124, height: 124), //
                 SizedBox(width: 20),
-                Image.asset('images/fozy2.jpg', width: 124, height: 124), // زيادة حجم الصورة هنا
+                Image.asset('images/fozy2.jpg', width: 124, height: 124), //
               ],
             ),
             SizedBox(height: 20),
@@ -128,11 +128,11 @@ class _MyGameState extends State<MyGame> {
                       });
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFE3F2FD), // تغيير لون الخلفية إلى الأزرق هنا
+                      primary: Color(0xFFE3F2FD), //
                     ),
                     child: Text(
                       letter,
-                      style: TextStyle(color: Colors.black), // تغيير لون النص إلى الأسود هنا
+                      style: TextStyle(color: Colors.black), //
                     ),
                   ),
                 ElevatedButton(
@@ -144,11 +144,11 @@ class _MyGameState extends State<MyGame> {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white, // تغيير لون الخلفية إلى الأزرق هنا
+                    primary: Colors.white, //
                   ),
                   child: Text(
                     'مسح',
-                    style: TextStyle(color: Colors.black), // تغيير لون النص إلى الأسود هنا
+                    style: TextStyle(color: Colors.black), //
                   ),
                 ),
               ],
@@ -198,11 +198,11 @@ class _MyGameState extends State<MyGame> {
                 }
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.white, // تغيير لون الخلفية إلى الأزرق هنا
+                primary: Colors.white,
               ),
               child: Text(
                 'تحقق',
-                style: TextStyle(color: Colors.black), // تغيير لون النص إلى الأسود هنا
+                style: TextStyle(color: Colors.black), //
               ),
             ),
           ],
