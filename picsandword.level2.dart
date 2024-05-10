@@ -55,7 +55,23 @@ class _MyGameState extends State<MyGame> {
         });
         countdown();
       } else if (isTimerRunning) {
-        // اترك هذا الجسم فارغًا لعدم عرض أي رسالة
+        isTimerRunning = false; // إيقاف المؤقت
+        showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+            title: Text('انتهى الوقت!'),
+            content: Text('انتهى الوقت، اضغط التالي للانتقال للخريطة.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  resetGame(); // إعادة تهيئة اللعبة
+                  Navigator.pop(context); // إغلاق الرسالة
+                },
+                child: Text('التالي'),
+              ),
+            ],
+          ),
+        );
       }
     });
   }
@@ -150,7 +166,7 @@ class _MyGameState extends State<MyGame> {
                     context: context,
                     builder: (_) => AlertDialog(
                       title: Text('ممتاز!'),
-                      content: Text('إجابتك صحيحة.'),
+                      content: Text('إجابتك صحيحة اذغط التالي للانتقال للخريطة'),
                       actions: [
                         TextButton(
                           onPressed: () {
