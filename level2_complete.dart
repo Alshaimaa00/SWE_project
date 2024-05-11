@@ -163,7 +163,6 @@ class _ColorGameScreenState extends State<ColorGameScreen> {
           'تعليمات لعبة تأثير ستروب',
           style: TextStyle(
             color: Color.fromARGB(255, 255, 255, 255),
-            fontWeight: FontWeight.bold,
             fontSize: 25,
           ),
         ),
@@ -187,7 +186,6 @@ class _ColorGameScreenState extends State<ColorGameScreen> {
                 Text(score.toString(),
                     style: TextStyle(fontSize: 22, color: Colors.black)),
                 Text(':عودة ', style: TextStyle(fontSize: 22,
-                    fontWeight: FontWeight.bold,
                     color: Colors.black)),
               ],
             ),
@@ -197,7 +195,7 @@ class _ColorGameScreenState extends State<ColorGameScreen> {
             left: 120.0,
             child: Text(
               'الوقت المتبقي: $remainingSeconds ثواني',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20),
             ),
           ),
           Column(
@@ -206,7 +204,7 @@ class _ColorGameScreenState extends State<ColorGameScreen> {
               Text(
                 ':اختر لون الكلمة',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 40.0),
               ),
               SizedBox(height: 1.0),
               Text(
@@ -336,7 +334,6 @@ class MyAp extends StatelessWidget {
               'لعبة توصيل العناصر',
               style: TextStyle(
                 color: Color.fromARGB(255, 255, 255, 255),
-                fontWeight: FontWeight.bold,
                 fontSize: 16,
               ),
             ),
@@ -491,7 +488,6 @@ class _GameScreenState extends State<GameScreen> {
               '        عودة\t${scoreN.toString()}',
               style: const TextStyle(
                 color: Color.fromARGB(255, 0, 0, 0),
-                fontWeight: FontWeight.bold,
                 fontSize: 22,
               ),
             ),
@@ -523,7 +519,6 @@ class _GameScreenState extends State<GameScreen> {
               style: const TextStyle(
                   color: Color.fromARGB(255, 0, 0, 0),
                   fontSize: 20,
-                fontWeight: FontWeight.bold,
               ),
             ),
 
@@ -534,7 +529,6 @@ class _GameScreenState extends State<GameScreen> {
               'من 5 إحتمالات\t$score',
               style: const TextStyle(
                   color: Color.fromARGB(255, 0, 0, 0),
-                fontWeight: FontWeight.bold,
                   fontSize: 20,
               ),
             ),
@@ -771,7 +765,6 @@ class _GameScreenState extends State<GameScreen> {
                 '$index',
                 style: const TextStyle(
                   color: Colors.transparent,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
            ),
@@ -1278,7 +1271,7 @@ class _MyGameState extends State<MyGame> {
         ),
         Align(
           alignment: Alignment(0, -0.6),
-          child: Text('الوقت المتبقي: $remainingSeconds ثواني', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold ,color: Colors.black)),
+          child: Text('الوقت المتبقي: $remainingSeconds ثواني', style: TextStyle(fontSize: 20, color: Colors.black)),
         ),
         Align(
           alignment: Alignment(0, -0.85),
@@ -1286,7 +1279,7 @@ class _MyGameState extends State<MyGame> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(' عودة ', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold ,color: Colors.black)),
-              Text(score.toString(), style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black)),
+              Text(score.toString(), style: TextStyle(fontSize: 22, color: Colors.black)),
             ],
           ),
         ),
