@@ -36,7 +36,7 @@ class _MyGameState extends State<MyGame> {
   int score = 0;
   String selectedLetter = '';
   String correctAnswer = 'نخل';
-  List<String> letters = ["ر","ل","ط","خ","ف","م","ن","ت"];
+  List<String> letters = ["ر", "ل", "ط", "خ", "ف", "م", "ن", "ت"];
   List<String> chosenLetters = [];
   int remainingSeconds = 15;
   bool isTimerRunning = true;
@@ -55,7 +55,25 @@ class _MyGameState extends State<MyGame> {
         });
         countdown();
       } else if (isTimerRunning) {
-        // اترك هذا الجسم فارغًا لعدم عرض أي رسالة
+        setState(() {
+          isTimerRunning = false;
+        });
+        showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+            title: Text('انتهى الوقت'),
+            content: Text('انتهى الوقت. الرجاء الضغط على التالي للانتقال للخريطة.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  // اضف هنا المنطق الخاص بالانتقال للخريطة
+                  Navigator.pop(context);
+                },
+                child: Text('التالي'),
+              ),
+            ],
+          ),
+        );
       }
     });
   }
@@ -150,7 +168,7 @@ class _MyGameState extends State<MyGame> {
                     context: context,
                     builder: (_) => AlertDialog(
                       title: Text('ممتاز!'),
-                      content: Text('إجابتك صحيحة.'),
+                      content: Text('إجابتك صحيحة.اضغط التالي للإنتقال للخريطة'),
                       actions: [
                         TextButton(
                           onPressed: () {
