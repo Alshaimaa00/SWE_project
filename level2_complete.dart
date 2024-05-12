@@ -186,7 +186,7 @@ class _ColorGameScreenState extends State<ColorGameScreen> {
               children: [
                 Text(score.toString(),
                     style: TextStyle(fontSize: 22, color: Colors.black)),
-                Text(':عودة ', style: TextStyle(fontSize: 22,
+                Text(' عودة ', style: TextStyle(fontSize: 22,
                     fontWeight: FontWeight.bold,
                     color: Colors.black)),
               ],
