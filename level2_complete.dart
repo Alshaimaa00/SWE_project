@@ -1143,6 +1143,11 @@ class _MyGameState extends State<MyGame> {
     countdown();
   }
 
+   AudioPlayer player = AudioPlayer();
+  void stopBKG(){
+    player.stop();
+  }
+  
   void timerMsg(message) {
     showDialog(
       context: context,
@@ -1194,6 +1199,7 @@ class _MyGameState extends State<MyGame> {
       } else if (isTimerRunning) {
         isTimerRunning = false;
         timerMsg("!انتهى الوقت");
+        stopBKG();
 
         /* showDialog(
           context: context,
