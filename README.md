@@ -30,10 +30,12 @@ It was developed as the final project for **CS290 Software Engineering** at Imam
 - **Three Mini Games** 🎮: Each one trains a different cognitive skill
 - **Journey Across Saudi Arabia** 🗺️: Unlock new regions as you progress, each with its own visuals and atmosphere
 - **Falcon Guide** 🦅: A falcon character that encourages and guides the player
-- **Rewards System** 🏆: Earn points after each game and spend them on hints that add extra time
+- **Rewards System** 🏆: Earn points in every game and collect Saudi-inspired rewards
 - **Progressive Difficulty** 📈: Challenges get harder as you move forward
+- **Short Instructions** 📝: A clear, brief explanation before each game
+- **Timed Challenges** ⏱️: A countdown keeps every round exciting
 - **Calm Design** 🎨: Subtle colors, clear fonts and soft sounds to help players focus
-- **Settings** ⚙️: Mute the sound and switch between dark and light mode
+- **Settings** ⚙️: Adjust the brightness and turn the sound on or off
 - **Arabic Interface** 🇸🇦: Built entirely in Arabic
 - **Free to Play** 💚: No payments required to unlock levels
 
@@ -89,39 +91,39 @@ The project includes **11 test scenarios** covering the game start, level map, p
 ## 📱 Screens Overview
 
 1. **Launch Page (🏠)**
-   - Start button, map, rewards and settings.
+   - The falcon, the start button, and quick access to the map, rewards and settings.
 
-2. **Map (🗺️)**
-   - Najd, Al-Sharqiyah and Al-Janoub levels, with locked levels in black and white.
+2. **Game Instructions (📝)**
+   - A short explanation before every game.
 
 3. **Stroop Effect Game (🎨)**
-   - Choose the color of the word from four options.
+   - Choose the color of the word from four options before time runs out.
 
 4. **Pictures & Word Game (🖼️)**
-   - Find the word that links the three pictures.
+   - Find the word that links the pictures using the letters provided.
 
 5. **Connect the Dots Game (🔗)**
-   - Connect the objects without crossing the lines.
+   - Connect matching objects without crossing the lines.
 
 6. **Rewards (🏆)**
-   - Your points and rewards.
+   - Your collected rewards.
 
 7. **Settings (⚙️)**
-   - Sound and dark / light mode.
+   - Brightness and sound controls.
 
-<!-- أضيفي صور الشاشات هنا بعد ما ترفعينها في مجلد assets:
 <div align="center" style="margin: 20px 0;">
 
-<img src="assets/screens.jpg" width="800" alt="Mafaza screens"/>
+<img src="assets/screens.jpg" width="100%" alt="Mafaza screens"/>
+
+*Every region has its own look: the desert, the sea and the green mountains.*
 
 </div>
--->
 
 ---
 
 ## ℹ️ More Information
 
-[🔗 View Full Design on Behance](https://www.behance.net/08d54468)
+[🔗 View Full Design on Behance](https://www.behance.net/gallery/253791019/Mafaza-Educational-App-like-Game)
 
 <!-- رابط التقرير الكامل أو الفيديو التعريفي:
 [📄 Full Project Report](YOUR_LINK)
@@ -147,7 +149,6 @@ The project includes **11 test scenarios** covering the game start, level map, p
 **Sharpen your mind, one game at a time 🦅💛**
 
 </div>
-
 
 
 
