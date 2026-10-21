@@ -58,9 +58,9 @@ Connect matching objects with lines **without letting the lines cross**.
 
 | Region | Theme |
 | --- | --- |
-| 🏜️ **Najd** | Vast desert plains |
-| 🌊 **Al-Sharqiyah** | Eastern coastlines |
-| ⛰️ **Al-Janoub** | Southern landscapes |
+| 🏜️ **Najd** | Desert dunes, a Bedouin tent and camels |
+| ⛰️ **Al-Janoub** | Green mountains and cable cars |
+| 🌊 **Al-Sharqiyah** | The sea, boats and oil fields |
 
 Locked regions appear in black and white, and unlocked ones are shown in color.
 
@@ -115,7 +115,7 @@ The project includes **11 test scenarios** covering the game start, level map, p
 
 <img src="assets/screens.jpg" width="100%" alt="Mafaza screens"/>
 
-*Every region has its own look: the desert, the sea and the green mountains.*
+*Every region has its own look: the desert, the green mountains and the sea.*
 
 </div>
 
@@ -149,6 +149,7 @@ The project includes **11 test scenarios** covering the game start, level map, p
 **Sharpen your mind, one game at a time 🦅💛**
 
 </div>
+
 
 
 
